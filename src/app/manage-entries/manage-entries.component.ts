@@ -13,8 +13,8 @@ import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firesto
 export class ManageEntriesComponent implements OnInit {
 
   postForm: FormGroup;
-  posts$: Observable<entry[]>;
   postsCollection: AngularFirestoreCollection<entry>;
+  posts$: Observable<entry[]>;
 
   constructor(private entryService: EntryService, afs: AngularFirestore) {
     this.postsCollection = afs.collection<entry>('posts$');
@@ -28,7 +28,7 @@ export class ManageEntriesComponent implements OnInit {
       email: new FormControl('', Validators.required)
     });
 
-    this.posts$ = this.entryService.getCollection$(ref => ref.orderBy('firstName'));
+    this.posts$ = this.entryService.getCollection$('entries');
   }
 
   save() {
@@ -40,7 +40,8 @@ export class ManageEntriesComponent implements OnInit {
     this.entryService.add({firstName, lastName, email});
 
     console.log('Saved');
-    console.log(this.posts$)
+    console.log(this.posts$);
+    console.log(this.postsCollection);
   }
 
   // Removes on provided id
