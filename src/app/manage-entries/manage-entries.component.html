@@ -1,11 +1,48 @@
-<form [formGroup]="postForm" (ngSubmit)="save()" >
-  <input type="text" placeholder="First Name" formControlName="firstName">
-  <input type="text" placeholder="Last Name" formControlName="lastName">
-  <input type="text" placeholder="Email" formControlName="email">
-  <input type="submit">
-</form>
+<!--<form [formGroup]="postForm" (ngSubmit)="save()" >-->
+  <!--<input type="text" placeholder="First Name" formControlName="firstName">-->
+  <!--<input type="text" placeholder="Last Name" formControlName="lastName">-->
+  <!--<input type="text" placeholder="Email" formControlName="email">-->
+  <!--<input type="submit">-->
+<!--</form>-->
 
-<h1>View Entries</h1>
-<ul *ngFor="let post of posts$" >
-  <li>{{ post.firstName }}</li>
-</ul>
+<mat-toolbar style="background-color: #555555;">
+  <span style="color: white; margin-left: 1%;">Jesuit Robotics</span>
+  <span class="demo-toolbar"></span>
+  <button mat-raised-button style="padding: 0 8px; min-width: 140px;" color="accent"><input style="color: black;" type="button" value="Go to our Website" onclick="window.location.href='http://www.jesuitrobotics.com/'" /></button>
+</mat-toolbar>
+
+<!-- Card container that binds all together -->
+<mat-card>
+  <!-- Actual content starts from here -->
+  <mat-card-content>
+    <form [formGroup]="postForm" (ngSubmit)="save()">
+      <table>
+        <tr>
+          <mat-form-field class="demo-full-width">
+            <input formControlName="firstName" matInput placeholder="First Name">
+          </mat-form-field>
+          <mat-form-field class="demo-full-width">
+            <input formControlName="lastName" matInput placeholder="Last Name">
+          </mat-form-field>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <mat-form-field class="demo-full-width">
+              <input formControlName="email" matInput placeholder="Email">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="content-center">
+            <button mat-raised-button color="accent" type="submit">Submit</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<!--<h1>View Entries</h1>-->
+<!--<ul *ngFor="let post of posts$" >-->
+  <!--<li>{{ post.firstName }}</li>-->
+<!--</ul>-->
