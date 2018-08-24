@@ -1,0 +1,6 @@
+<form [formGroup]="postForm" (ngSubmit)="save()" >
+  <input type="text" placeholder="First Name" formControlName="firstName">
+  <input type="text" placeholder="Last Name" formControlName="lastName">
+  <input type="text" placeholder="Email" formControlName="email">
+  <input type="submit">
+</form>
