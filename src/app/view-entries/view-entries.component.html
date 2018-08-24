@@ -1,3 +1,7 @@
-<p>
-  view-entries works!
-</p>
+<div *ngFor="let post of posts$ | async" >
+  <ul>
+    <li>  {{ post.firstName}}</li>
+    <li> {{ post.lastName }} </li>
+    <li> {{ post.email }} </li>
+  </ul>
+</div>

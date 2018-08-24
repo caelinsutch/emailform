@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {entry} from '../entry.model';
+import {EntryService} from '../entry.service';
 
 @Component({
   selector: 'app-view-entries',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEntriesComponent implements OnInit {
 
-  constructor() { }
+  posts$: Observable<entry[]>;
+
+  constructor(private entryService: EntryService) { }
 
   ngOnInit() {
+    this.posts$ = this.entryService.getCollection$();
   }
 
 }
